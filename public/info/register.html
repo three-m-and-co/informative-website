@@ -1,0 +1,38 @@
+<!doctype html>
+<html  lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="css/register.css" type="text/css" />
+		<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+		<title>Registration form</title>
+	</head>
+	<body>
+		<form id="registration" action="" method="">
+			<h1>Registration page for DSITI employees</h1>
+			<p>If you are working for the DSITI and want access to the application, you can register here for free.</p>
+			<p>Please enter a valid DSITI email address, so we can automatically send you the download link.</p>
+			<p>
+				<label for="firstname">First name*</label><input type="text" name="firstname" id="firstname" placeholder="Your first name" />
+			</p>
+			<p>
+				<label for="lastname">Last name*</label><input type="text" name="lastname" id="lastname" placeholder="Your last name" />
+			</p>
+			<p>
+				<label for="email">Your DSITI email*</label><input type="email" name="email" id="email" placeholder="example@dsiti.qld.gov.au" />
+			</p>
+			<p>
+				<label for="department">DSITI department</label><input type="text" name="department" id="department" placeholder="Department" />
+			</p>
+			<p>
+				<label for="jobtitle">Job title</label><input type="text" name="jobtitle" id="jobtitle" placeholder="Your job title" />
+			</p>
+			<p>
+				<label for="phone">Work phone</label><input type="text" name="phone" id="phone" placeholder="Your work phone" />
+			</p>
+			<p>* required input</p>
+			<p><input type="checkbox" name="newsletter" value="newsletter">Yes, send me updates on information like new features</p>
+            <p><input type="submit" value="Get Soil Datasheet"/></p>
+		</form>
+		<script type='text/javascript' src="scripts/register.js"></script>
+	</body>
+</html>

@@ -1,0 +1,26 @@
+label{
+	display: inline-block;
+	width: 150px;
+	text-align: right;
+	margin-right: 15px;
+}
+
+input[type=text]{
+    width: 200px;
+}
+
+input[type=email]{
+    width: 200px;
+}
+
+input:focus{
+	border-color: #00ff00;
+}
+
+.error{
+	color: #ff0000;
+}
+
+input.error{
+	border-color: #ff0000;
+}
