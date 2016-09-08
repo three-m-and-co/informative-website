@@ -1,13 +1,16 @@
 {
-    "name": "informative-website",
-    "version": "0.0.0",
-    "description": "Informative website",
-    "private": true,
-    "author": {
-        "name": "Three M and Co",
-        "email": "matthew.d.james87@gmail.com"
-    },
-    "dependencies": {
-        "sqlite3": "^3.1.4"
-    }
+  "name": "informative-website",
+  "version": "0.0.0",
+  "description": "Informative website",
+  "main": "app.js",
+  "private": true,
+  "author": {
+    "name": "Three M and Co",
+    "email": "matthew.d.james87@gmail.com"
+  },
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "sqlite3": "^3.1.4"
+  }
 }
