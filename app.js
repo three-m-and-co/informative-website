@@ -17,6 +17,31 @@ app.use(bodyParser.json()); // support json-encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 app.use(express.static(path.join(__dirname, "public/info"))); // directs user straight to info directory
 
+/**
+ * Function returns date in correct format for database (YYYY-MM-DD)
+ */
+function getCurrentDate() {
+
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth() + 1;
+    var yyyy = today.getFullYear();
+
+    if (dd < 10) {
+
+        dd = '0' + dd;
+    }
+
+    if (mm < 10) {
+
+        mm = '0' + mm;
+    }
+
+    today = yyyy + '-' + mm + '-' + dd;
+
+    return today;
+}
+
 // initialises database
 // function ensures queries are run serially
 db.serialize(function() {
@@ -42,12 +67,13 @@ app.post('/db/add-guest', function(req, res) {
     var jobTitle = req.body.jobtitleval;
     var updateRequested = req.body.interestval;
     var phone = req.body.phoneval;
-    var date = req.body.dateval;
+    var date = getCurrentDate();
 
     var stmt = db.prepare("INSERT INTO Guest VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
     stmt.run(email, firstName, lastName, department, jobTitle, phone, updateRequested, date);
     stmt.finalize();
 
+    // TEMP: currently spits out inputted values to ensure it's working
     db.each("SELECT * FROM Guest", function(err, row) {
 
         console.log(row.email);
@@ -61,6 +87,30 @@ app.post('/db/add-guest', function(req, res) {
     });
 
     res.send("Data entered");
+});
+
+app.enable('trust proxy');
+
+// POST http://localhost:8080/db/log-ip
+// following handles any AJAX POST requests to /db/log-ip
+app.get('/db/log-ip', function(req, res) {
+
+    var ip = req.ip;
+    var date = getCurrentDate();
+
+    var stmt = db.prepare("INSERT INTO PageCount VALUES (?, ?)");
+    stmt.run(ip, date);
+    stmt.finalize();
+
+    // TEMP: currently spits out inputted values to ensure it's working
+    db.each("SELECT * FROM PageCount", function(err, row) {
+
+        console.log(row.ip);
+        console.log(row.date);
+    });
+
+    // TEMP: we will not send this in future
+    res.send("IP logged");
 });
 
 // start the server

@@ -40,31 +40,6 @@ $(document).ready(function() {
 
 });
 
-/**
- * Function returns date in correct format for database (YYYY-MM-DD)
- */
-function getCurrentDate() {
-
-    var today = new Date();
-    var dd = today.getDate();
-    var mm = today.getMonth() + 1;
-    var yyyy = today.getFullYear();
-
-    if (dd < 10) {
-
-        dd = '0' + dd;
-    }
-
-    if (mm < 10) {
-
-        mm = '0' + mm;
-    }
-
-    today = yyyy + '-' + mm + '-' + dd;
-
-    return today;
-}
-
 //send function (checks, if required fields are filled out)
 function validationsend() {
     var firstnameval = $('#firstname').val();
@@ -74,7 +49,6 @@ function validationsend() {
     var jobtitleval = $('#jobtitle').val();
     var interestval = $('#newsletter').is(":checked") ? 1 : 0;
     var phoneval = $('#phone').val();
-    var dateval = getCurrentDate();
 
     if (firstnameval !== '' && lastnameval !== '' && emailval !== '') {
 
@@ -86,8 +60,7 @@ function validationsend() {
             departmentval: departmentval,
             jobtitleval: jobtitleval,
             interestval: interestval,
-            phoneval: phoneval,
-            dateval: dateval
+            phoneval: phoneval
         };
 
         // performs an AJAX POST to submit guest data to db
