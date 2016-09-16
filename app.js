@@ -1,14 +1,48 @@
-// File references: https://scotch.io/tutorials/use-expressjs-to-get-url-and-post-parameters
+// File references: https://scotch.io/tutorials/use-expressjs-to-get-url-and-post-parameters,
+// https://www.npmjs.com/package/uqsso
 
 var path = require('path');
 var express = require('express');
 var fs = require('fs');
 var bodyParser = require('body-parser');
 var sqlite3 = require('sqlite3').verbose();
+/*
+    EXECPHP STUFF FOR TOBY BELOW
+*/
+var execPhp = require('exec-php');
 
+/*
+    EXECPHP STUFF FOR TOBY BELOW
+
+    It references: https://www.npmjs.com/package/exec-php
+
+    Note: '/usr/bin/php' will be different for you on your machine (it's the
+    path to where php is installed on your machine [so you'll have to install
+    it if it's not already installed])
+*/
+execPhp('./test.php', '/usr/bin/php', function(error, php, output) {
+
+    // should now have access to functions within 'test.php'
+    php.runtest(function(error, result, output, printed) {
+
+        // you should see 'This is a test' when you run 'node app.js' in a
+        // command prompt
+        console.log(result);
+    });
+});
+
+/*
+var uqsso = require('uqsso');
+var cookieParser = require('cookie-parser');
+var sso = uqsso();
+sso.public('^/$');
+*/
 var app = express();
 var port = process.env.port || 8080;
-
+/*
+app.use(cookieParser());
+app.use(sso);
+*/
 var file = 'test.db';
 var exists = fs.existsSync(file);
 var db = new sqlite3.Database(file);
@@ -69,22 +103,9 @@ app.post('/db/add-guest', function(req, res) {
     var phone = req.body.phoneval;
     var date = getCurrentDate();
 
-    var stmt = db.prepare("INSERT INTO Guest VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+    var stmt = db.prepare("INSERT OR IGNORE INTO Guest VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
     stmt.run(email, firstName, lastName, department, jobTitle, phone, updateRequested, date);
     stmt.finalize();
-
-    // TEMP: currently spits out inputted values to ensure it's working
-    db.each("SELECT * FROM Guest", function(err, row) {
-
-        console.log(row.email);
-        console.log(row.first_name);
-        console.log(row.last_name);
-        console.log(row.dept);
-        console.log(row.job);
-        console.log(row.phone);
-        console.log(row.update_requested);
-        console.log(row.date);
-    });
 
     res.send("Data entered");
 });
@@ -98,21 +119,19 @@ app.get('/db/log-ip', function(req, res) {
     var ip = req.ip;
     var date = getCurrentDate();
 
-    var stmt = db.prepare("INSERT INTO PageCount VALUES (?, ?)");
+    var stmt = db.prepare("INSERT OR IGNORE INTO PageCount VALUES (?, ?)");
     stmt.run(ip, date);
     stmt.finalize();
-
-    // TEMP: currently spits out inputted values to ensure it's working
-    db.each("SELECT * FROM PageCount", function(err, row) {
-
-        console.log(row.ip);
-        console.log(row.date);
-    });
-
-    // TEMP: we will not send this in future
-    res.send("IP logged");
 });
+/*
+// GET http://localhost:8080/auth
+// following handles any requests to /auth
+app.get('/auth', function(req, res, next) {
 
+    console.log("Directed to auth page");
+    return res.send(JSON.stringify(req.user));
+});
+*/
 // start the server
 app.listen(port);
 console.log("Server started at localhost:" + port);
