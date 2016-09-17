@@ -15,6 +15,34 @@
   General
   ========================================================================== */
 
+#interestButton {
+    -moz-box-shadow: -1px -1px 0px -1px #7dd041;
+    -webkit-box-shadow: -1px -1px 0px -1px #7dd041;
+    box-shadow: -1px -1px 0px -1px #7dd041;
+    background-color: #7dd041;
+    -moz-border-radius: 42px;
+    -webkit-border-radius: 42px;
+    border-radius: 42px;
+    border: 1px solid;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 17px;
+    padding: 18px 35px;
+    text-decoration: none;
+    text-shadow: -1px 1px 0px #2f6627;
+}
+
+#interestButton:hover {
+    background-color: #5cbf2a;
+}
+
+#interestButton:active {
+    position: relative;
+    top: 1px;
+}
+
 body {
     color: #777;
     background: #f7f7f7;
@@ -582,7 +610,7 @@ h1 a.navbar-brand {
 =========================== */
 
 section.featured {
-    padding: 200px 0 60px;
+    padding: 200px 0 200px;
     background-image: url("../img/parallax/soilInHand.jpg");
     background-size: cover;
     color: #fdfdfd;

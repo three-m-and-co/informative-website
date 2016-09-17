@@ -2,6 +2,11 @@
 <html lang=en>
 
 <head>
+    <!--
+    All links in the footer should remain intact.
+    Licenseing information is available at: http://bootstraptaste.com/license/
+    You can buy this theme without footer links online at: http://bootstraptaste.com/buy/?theme=Amoeba
+    -->
     <script data-main="scripts/externals/config.js" src="scripts/externals/require.min.js"></script>
     <script src="scripts/externals/jquery.min.js"></script>
     <script src="scripts/loginterest.js"></script>
@@ -31,10 +36,10 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav" data-0="margin-top:20px;" data-300="margin-top:5px;">
+                    <!-- TODO Fix These links -->
                     <li><a href="#section-about">About</a></li>
-                    <!-- TODO Fix this link -->
-                    <li><a href="#section-contact">Buy</a></li>
-                    <li><a href="#section-contact">Contact</a></li>
+                    <li><a href="#section-buy">Buy</a></li>
+                    <li><a href="#section-team">Team</a></li>
                 </ul>
             </div>
             <!--/.navbar-collapse -->
@@ -57,14 +62,43 @@
     <!-- End Featured Section -->
 
     <!-- services -->
-    <section id="section-services" class="section pad-bot30 bg-white">
+    <section id="section-about" class="section pad-bot30 bg-white">
         <div class="container">
+            <div class="row mar-bot40">
+                <div class="col-lg-4">
+                    <div class="align-center">
+                        <i class="fa fa-envira fa-5x mar-bot20"></i>
+                        <h4 class="text-bold">Soil Experts</h4>
+                        <p>
+                            We use <a href="https://nodejs.org/en/">NodeJS</a> to run the backend of our Web app. <a href="https://www.npmjs.com/">NPM</a> also does wonders for dependency management.
+                        </p>
+                    </div>
+                </div>
 
+                <div class="col-lg-4">
+                    <div class="align-center">
+                        <i class="fa fa-user-md fa-5x mar-bot20"></i>
+                        <h4 class="text-bold">Expert Users</h4>
+                        <p>
+                            We've made use of Flexbox in HTML5 / CSS3 to achieve our Mobile-First, Responsive Web design. Enjoy the app on any screen size.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="align-center">
+                        <i class="fa fa-heartbeat fa-5x mar-bot20"></i>
+                        <h4 class="text-bold">Robust Construction</h4>
+                        <p>Lorem ipsum dolor sit amet, mutat graeco volumus ad eam, singulis patrioque comprehensam nam no. Mei cu dicat voluptaria volumus.
+                        </p>
+                    </div>
+                </div>
+            </div>
             <div class="row mar-bot40">
                 <div class="col-lg-4">
                     <div class="align-center">
                         <i class="fa fa-code fa-5x mar-bot20"></i>
-                        <h4 class="text-bold">NodeJS</h4>
+                        <h4 class="text-bold">NodeJS Integration</h4>
                         <p>
                             We use <a href="https://nodejs.org/en/">NodeJS</a> to run the backend of our Web app. <a href="https://www.npmjs.com/">NPM</a> also does wonders for dependency management.
                         </p>
@@ -74,7 +108,7 @@
                 <div class="col-lg-4">
                     <div class="align-center">
                         <i class="fa fa-terminal fa-5x mar-bot20"></i>
-                        <h4 class="text-bold">Responsive</h4>
+                        <h4 class="text-bold">Responsive First</h4>
                         <p>
                             We've made use of Flexbox in HTML5 / CSS3 to achieve our Mobile-First, Responsive Web design. Enjoy the app on any screen size.
                         </p>
@@ -83,28 +117,24 @@
 
                 <div class="col-lg-4">
                     <div class="align-center">
-                        <i class="fa fa-bolt fa-5x mar-bot20"></i>
-                        <h4 class="text-bold">Customizable</h4>
+                        <i class="fa fa-bar-chart fa-5x mar-bot20"></i>
+                        <h4 class="text-bold">Database Export</h4>
                         <p>Lorem ipsum dolor sit amet, mutat graeco volumus ad eam, singulis patrioque comprehensam nam no. Mei cu dicat voluptaria volumus.
                         </p>
                     </div>
                 </div>
-
             </div>
-
         </div>
     </section>
 
-    <!-- spacer section:testimonial -->
-    <section id="testimonials" class="section" data-stellar-background-ratio="0.5">
+    <!-- Video Call to Action -->
+    <section id="section-buy" class="section appear clearfix">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="align-center">
-                        <div class="testimonial pad-top40 pad-bot40 clearfix">
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/Q7SH20Lgemo" frameborder="0" allowfullscreen></iframe>
-                        </div>
-                        <button id="interestButton" href="register.html">Show your interest</button>
+            <div class="row mar-bot40">
+                <div class="col-md-offset-3 col-md-6">
+                    <div class="section-header">
+                        <iframe class="mar-bot40" width="560" height="315" src="https://www.youtube.com/embed/Q7SH20Lgemo" frameborder="0" allowfullscreen></iframe>
+                        <button id="interestButton" href="register.html">BUY NOW</button>
                     </div>
                 </div>
             </div>
@@ -112,7 +142,7 @@
     </section>
 
     <!-- about -->
-    <section id="section-about" class="section appear clearfix">
+    <section id="section-team" class="section appear clearfix bg-white">
         <div class="container">
             <div class="row mar-bot40">
                 <div class="col-md-offset-3 col-md-6">
@@ -137,7 +167,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="team-member">
-                        <figure class="member-photo"><img src="img/team/member2.jpg" alt="" /></figure>
+                        <figure class="member-photo"><img src="img/team/matthew.jpg" alt="A Picture of Matthew James" /></figure>
                         <div class="team-detail">
                             <h4>Matthew James</h4>
                             <span>Software Architect</span>
@@ -146,7 +176,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="team-member">
-                        <figure class="member-photo"><img src="img/team/member3.jpg" alt="" /></figure>
+                        <figure class="member-photo"><img src="img/team/jason.png" alt="A Picture of Jason Su" /></figure>
                         <div class="team-detail">
                             <h4>Jason Su</h4>
                             <span>Web Designer</span>
@@ -189,65 +219,7 @@
     </section>
     <!-- /about -->
 
-    <!-- spacer section:stats -->
-    <section id="parallax1" class="section pad-top40 pad-bot40" data-stellar-background-ratio="0.5">
-        <div class="container">
-            <div class="align-center pad-top40 pad-bot40">
-                <blockquote class="bigquote color-white">Indoctum accusamus comprehensam</blockquote>
-                <p class="color-white">Bootstraptaste</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- contact -->
-    <section id="section-contact" class="section appear clearfix">
-        <div class="container">
-
-            <div class="row mar-bot40">
-                <div class="col-md-offset-3 col-md-6">
-                    <div class="section-header">
-                        <h2 class="section-heading animated" data-animation="bounceInUp">Contact us</h2>
-                        <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet consectetur, adipisci velit, sed quia non numquam.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-8 col-md-offset-2">
-                    <div class="cform" id="contact-form">
-                        <div id="sendmessage">
-                            Your message has been sent. Thank you!
-                        </div>
-                        <form action="contact/contact.php" method="post" role="form" class="contactForm">
-                            <div class="form-group">
-                                <label for="name">Your Name</label>
-                                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="maxlen:4" data-msg="Please enter at least 4 chars" />
-                                <div class="validation"></div>
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Your Email</label>
-                                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
-                                <div class="validation"></div>
-                            </div>
-                            <div class="form-group">
-                                <label for="subject">Subject</label>
-                                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="maxlen:4" data-msg="Please enter at least 8 chars of subject" />
-                                <div class="validation"></div>
-                            </div>
-                            <div class="form-group">
-                                <label for="message">Message</label>
-                                <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us"></textarea>
-                                <div class="validation"></div>
-                            </div>
-
-                            <button type="submit" class="btn btn-theme pull-left">SEND MESSAGE</button>
-                        </form>
-
-                    </div>
-                </div>
-                <!-- ./span12 -->
-            </div>
-        </div>
-    </section>
+    <!-- Start Footer -->
     <section id="footer" class="section footer">
         <div class="container">
             <div class="row animated opacity mar-bot20" data-andown="fadeIn" data-animation="animation">
@@ -255,8 +227,7 @@
                     <ul class="social-network social-circle">
                         <li><a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
                         <li><a href="#" class="icoTwitter" title="Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                        <li><a href="#" class="icoInstagram" title="Instagram"><i class="fa fa-instagram" aria-hidden="true"></i>
-</a></li>
+                        <li><a href="#" class="icoInstagram" title="Instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
                     </ul>
                 </div>
             </div>
@@ -264,11 +235,6 @@
                 <div class="col-sm-12">
                     <p>Copyright &copy; 2016 Three M and Co</p>
                 </div>
-                <!--
-                        All links in the footer should remain intact.
-                        Licenseing information is available at: http://bootstraptaste.com/license/
-                        You can buy this theme without footer links online at: http://bootstraptaste.com/buy/?theme=Amoeba
-                    -->
             </div>
         </div>
     </section>
