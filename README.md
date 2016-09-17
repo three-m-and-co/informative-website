@@ -27,6 +27,18 @@ what `/public/` is for the main app. I.e., this directory will store a landing
 
 All stylesheets for the informative website go here.
 
+#### /public/info/fonts
+
+All Font Awesome fonts used go here.
+
+#### /public/info/img
+
+All custom site images.
+
+#### /public/info/js
+
+Stores 3rd-party scripts used in the site.
+
 #### /public/info/scripts
 
 All self-written Javascript files go here.
@@ -34,5 +46,9 @@ All self-written Javascript files go here.
 ##### /public/info/scripts/externals
 
 All 3rd-party Javascript etc. files go here.
+
+#### /public/info/skin
+
+3rd-party CSS styling.
 
 Feel free to add / change to this document
