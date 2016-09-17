@@ -110,6 +110,24 @@ app.post('/db/add-guest', function(req, res) {
     res.send("Data entered");
 });
 
+// GET http://localhost:8080/db/get-guests
+// following handles any AJAX GET requests to /db/get-guests
+app.get('/db/get-guests', function(req, res) {
+
+    var returnArray = [];
+    db.each("SELECT email, update_requested, date FROM Guest", function(err, row) {
+
+        var rowArray = [];
+        rowArray.push(row.email);
+        rowArray.push(row.update_requested);
+        rowArray.push(row.date);
+
+        returnArray.push(rowArray);
+    });
+
+    res.send(returnArray);
+});
+
 app.enable('trust proxy');
 
 // POST http://localhost:8080/db/log-ip
@@ -122,6 +140,21 @@ app.get('/db/log-ip', function(req, res) {
     var stmt = db.prepare("INSERT OR IGNORE INTO PageCount VALUES (?, ?)");
     stmt.run(ip, date);
     stmt.finalize();
+});
+
+// GET http://localhost:8080/db/get-ips
+// following handles any AJAX GET requests to /db/get-ips
+app.get('/db/get-ips', function(req, res) {
+
+    var returnArray = [];
+    db.each("SELECT * FROM PageCount", function(err, row) {
+
+        var rowArray = [];
+        rowArray.push(row.ip);
+        rowArray.push(row.date);
+
+        returnArray.push(rowArray);
+    });
 });
 /*
 // GET http://localhost:8080/auth
