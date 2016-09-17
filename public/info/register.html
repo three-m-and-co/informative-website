@@ -7,37 +7,54 @@
     <!-- <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script> -->
     <script data-main="scripts/externals/config.js" src="scripts/externals/require.min.js"></script>
     <script src="scripts/externals/jquery.min.js"></script>
+    <script type='text/javascript' src="scripts/register.js"></script>
     <title>Registration form</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="Small Informative Website for team Three M and Co for Electronic SoilDataSheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/isotope.css" media="screen" />
+    <link rel="stylesheet" href="js/fancybox/jquery.fancybox.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.css">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- skin -->
+    <link rel="stylesheet" href="skin/default.css">
 </head>
 
 <body>
-    <form id="registration" action="" method="">
-        <h1>Registration page for DSITI employees</h1>
-        <p>If you are working for the DSITI and want access to the application, you can register here for free.</p>
-        <p>Please enter a valid DSITI email address, so we can automatically send you the download link.</p>
-        <p>
-            <label for="firstname">First name*</label><input type="text" name="firstname" id="firstname" placeholder="Your first name" />
-        </p>
-        <p>
-            <label for="lastname">Last name*</label><input type="text" name="lastname" id="lastname" placeholder="Your last name" />
-        </p>
-        <p>
-            <label for="email">Your DSITI email*</label><input type="email" name="email" id="email" placeholder="example@dsiti.qld.gov.au" />
-        </p>
-        <p>
-            <label for="department">DSITI department</label><input type="text" name="department" id="department" placeholder="Department" />
-        </p>
-        <p>
-            <label for="jobtitle">Job title</label><input type="text" name="jobtitle" id="jobtitle" placeholder="Your job title" />
-        </p>
-        <p>
-            <label for="phone">Work phone</label><input type="text" name="phone" id="phone" placeholder="Your work phone" />
-        </p>
-        <p>* required input</p>
-        <p><input type="checkbox" name="newsletter" id="newsletter" value="newsletter">Yes, send me updates on information like new features</p>
-        <p><input type="submit" value="Get Soil Datasheet" /></p>
-    </form>
-    <script type='text/javascript' src="scripts/register.js"></script>
+    <div class="navbar navbar-fixed-top" role="navigation" data-0="line-height:100px; height:100px; background-color:rgba(0,0,0,0.3);" data-300="line-height:60px; height:60px; background-color:rgba(0,0,0,1);">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="fa fa-bars color-white"></span>
+				</button>
+                <h1><a class="navbar-brand" href="index.html" data-0="line-height:90px;" data-300="line-height:50px;">Soil Data Sheets</a></h1>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav" data-0="margin-top:20px;" data-300="margin-top:5px;">
+                    <!-- TODO Fix These links -->
+                    <li><a href="#section-about">About</a></li>
+                    <li><a href="#section-buy">Buy</a></li>
+                    <li><a href="#section-team">Team</a></li>
+                </ul>
+            </div>
+            <!--/.navbar-collapse -->
+        </div>
+    </div>
+    <!-- Start Featured Section -->
+    <section class="featured">
+        <div class="container">
+            <div class="row mar-bot40">
+                <div class="col-md-6 col-md-offset-3">
+                    <div class="align-center">
+                        <h2 class="slogan">Registration page for DSITI employees</h2>
+                        <h4>Register here for free. Show your interest.</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Featured Section -->
 
     <!-- contact -->
     <section id="section-contact" class="section appear clearfix">
@@ -46,8 +63,8 @@
             <div class="row mar-bot40">
                 <div class="col-md-offset-3 col-md-6">
                     <div class="section-header">
-                        <h2 class="section-heading animated" data-animation="bounceInUp">Contact us</h2>
-                        <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet consectetur, adipisci velit, sed quia non numquam.</p>
+                        <h2 class="section-heading animated" data-animation="bounceInUp">Register</h2>
+                        <p>* required input</p>
                     </div>
                 </div>
             </div>
@@ -55,31 +72,51 @@
                 <div class="col-md-8 col-md-offset-2">
                     <div class="cform" id="contact-form">
                         <div id="sendmessage">
-                            Your message has been sent. Thank you!
+                            You have successfully registered. Thank you!
                         </div>
-                        <form action="contact/contact.php" method="post" role="form" class="contactForm">
+                        <form id="registration" action="/db/add-guest" method="post" role="form" class="contactForm">
+                            <!-- <form action="contact/contact.php" method="post" role="form" class="contactForm"> -->
                             <div class="form-group">
-                                <label for="name">Your Name</label>
-                                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="maxlen:4" data-msg="Please enter at least 4 chars" />
+                                <p>
+                                    <label for="firstname">First name*</label><input type="text" name="firstname" id="firstname" placeholder="Your first name" data-msg="Please enter your first name" />
+                                </p>
                                 <div class="validation"></div>
                             </div>
                             <div class="form-group">
-                                <label for="email">Your Email</label>
-                                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+                                <p>
+                                    <label for="lastname">Last name*</label><input type="text" name="lastname" id="lastname" placeholder="Your last name" data-msg="Please enter your last name" />
+                                </p>
                                 <div class="validation"></div>
                             </div>
                             <div class="form-group">
-                                <label for="subject">Subject</label>
-                                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="maxlen:4" data-msg="Please enter at least 8 chars of subject" />
+                                <p>
+                                    <label for="email">Your DSITI email*</label><input type="email" name="email" id="email" placeholder="example@dsiti.qld.gov.au" data-msg="Please enter your valid DSITI email" />
+                                </p>
                                 <div class="validation"></div>
                             </div>
                             <div class="form-group">
-                                <label for="message">Message</label>
-                                <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us"></textarea>
+                                <p>
+                                    <label for="department">DSITI department</label><input type="text" name="department" id="department" placeholder="Department" data-msg="Please enter the DSITI department you work for" />
+                                </p>
                                 <div class="validation"></div>
                             </div>
-
-                            <button type="submit" class="btn btn-theme pull-left">SEND MESSAGE</button>
+                            <div class="form-group">
+                                <p>
+                                    <label for="jobtitle">Job title</label><input type="text" name="jobtitle" id="jobtitle" placeholder="Your job title" data-msg="Please enter your job title at DSITI" />
+                                </p>
+                                <div class="validation"></div>
+                            </div>
+                            <div class="form-group">
+                                <p>
+                                    <label for="phone">Work phone</label><input type="text" name="phone" id="phone" placeholder="Your work phone" />
+                                </p>
+                                <div class="validation"></div>
+                            </div>
+                            <div class="form-group">
+                                <p><input type="checkbox" name="newsletter" id="newsletter" value="newsletter"> Yes, send me updates on information like new features</p>
+                                <div class="validation"></div>
+                            </div>
+                            <button type="submit" class="btn btn-theme pull-left">GET SOIL DATASHEET</button>
                         </form>
 
                     </div>
@@ -88,7 +125,40 @@
             </div>
         </div>
     </section>
+
+    <!-- Start Footer -->
+    <section id="footer" class="section footer">
+        <div class="container">
+            <div class="row animated opacity mar-bot20" data-andown="fadeIn" data-animation="animation">
+                <div class="col-sm-12 align-center">
+                    <ul class="social-network social-circle">
+                        <li><a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                        <li><a href="#" class="icoTwitter" title="Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                        <li><a href="#" class="icoInstagram" title="Instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row align-center copyright">
+                <div class="col-sm-12">
+                    <p>Copyright &copy; 2016 Three M and Co</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery.easing.1.3.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.isotope.min.js"></script>
+    <script src="js/jquery.nicescroll.min.js"></script>
+    <script src="js/fancybox/jquery.fancybox.pack.js"></script>
+    <script src="js/skrollr.min.js"></script>
+    <script src="js/jquery.scrollTo-1.4.3.1-min.js"></script>
+    <script src="js/jquery.localscroll-1.2.7-min.js"></script>
+    <script src="js/stellar.js"></script>
+    <script src="js/jquery.appear.js"></script>
     <script src="js/validate.js"></script>
+    <script src="js/main.js"></script>
 </body>
 
 </html>
