@@ -6,30 +6,8 @@ var express = require('express');
 var fs = require('fs');
 var bodyParser = require('body-parser');
 var sqlite3 = require('sqlite3').verbose();
-/*
-    EXECPHP STUFF FOR TOBY BELOW
-*/
+
 var execPhp = require('exec-php');
-
-/*
-    EXECPHP STUFF FOR TOBY BELOW
-
-    It references: https://www.npmjs.com/package/exec-php
-
-    Note: '/usr/bin/php' will be different for you on your machine (it's the
-    path to where php is installed on your machine [so you'll have to install
-    it if it's not already installed])
-*/
-execPhp('./test.php', '/usr/bin/php', function(error, php, output) {
-
-    // should now have access to functions within 'test.php'
-    php.runtest(function(error, result, output, printed) {
-
-        // you should see 'This is a test' when you run 'node app.js' in a
-        // command prompt
-        console.log(result);
-    });
-});
 
 /*
 var uqsso = require('uqsso');
@@ -156,6 +134,33 @@ app.get('/db/get-ips', function(req, res) {
         returnArray.push(rowArray);
     });
 });
+
+// GET http://localhost:8080/adminlogin
+// following handles any AJAX GET requests to /adminlogin
+/*
+    Note: '/usr/bin/php' will be different for you on your machine (it's the
+    path to where php is installed on your machine [so you'll have to install
+    it if it's not already installed])
+*/
+app.get('/adminlogin', function(req, res) {
+
+    var astring = "php didn't work - check server since it probably crashed";
+
+    execPhp('./php/uqsignon.php', '/usr/bin/php', function(error, php, output) {
+
+        // should now have access to functions within 'test.php'
+        php.runtest(function(error, result, output, printed) {
+
+            // you should see 'This is a test' when you run 'node app.js' in a
+            // command prompt
+            console.log(result);
+            astring = result;
+        });
+    });
+    res.send(astring);
+});
+
+
 /*
 // GET http://localhost:8080/auth
 // following handles any requests to /auth
