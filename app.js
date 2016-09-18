@@ -145,8 +145,8 @@ app.get('/db/get-ips', function(req, res) {
 app.get('/adminlogin', function(req, res) {
 
     var astring = "php didn't work - check server since it probably crashed";
-
-    execPhp('./php/uqsignon.php', '/usr/bin/php', function(error, php, output) {
+    console.log("Starting call to PHP script");
+    execPhp('php/uqsignon.php', '/usr/bin/php', function(error, php, output) {
 
         // should now have access to functions within 'test.php'
         php.runtest(function(error, result, output, printed) {
@@ -157,9 +157,20 @@ app.get('/adminlogin', function(req, res) {
             astring = result;
         });
     });
+    console.log("Call to script made");
     res.send(astring);
 });
 
+execPhp('./php/uqsignon.php', '/usr/bin/php', function(error, php, output) {
+
+    // should now have access to functions within 'test.php'
+    php.authuser(function(error, result, output, printed) {
+
+        // you should see 'This is a test' when you run 'node app.js' in a
+        // command prompt
+        console.log(error);
+    });
+});
 
 /*
 // GET http://localhost:8080/auth
