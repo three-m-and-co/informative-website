@@ -16,7 +16,7 @@
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
-require_once "uq/libkv.php";
+require_once "libkv.php";
 
 define('KVD_SERVER', '172.23.84.20');
 define('KVD_COOKIE', 'EAIT_WEB');
