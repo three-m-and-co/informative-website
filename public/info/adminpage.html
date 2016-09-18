@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+</head>
+
+<body>
+    <h1>Admin Page</h1>
+    <div id="testdiv"></div>
+    <script src="js/jquery.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $.get('/adminlogin', function(test) {
+                $('#testdiv').html(test);
+            });
+        });
+    </script>
+</body>
+
+</html>
