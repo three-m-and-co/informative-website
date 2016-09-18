@@ -248,21 +248,30 @@ h1 a.navbar-brand {
   --- Featured section ----
 =========================== */
 
-section.featured {
+section.featured,
+section.featured2 {
     padding: 200px 0 200px;
     background-image: url("../img/soilInHand.jpg");
     background-size: cover;
     color: #fdfdfd;
 }
 
-section.featured h2.slogan {
+section.featured h2.slogan,
+section.featured2 h2.slogan {
     color: #fff;
     font-size: 48px;
     font-weight: 900;
 }
 
-section.featured h4 {
+section.featured h4,
+section.featured2 h4 {
     color: #fff;
+}
+
+section.featured2 {
+    background-image: none;
+    background-color: #242424;
+    padding: 200px 0 100px;
 }
 
 
@@ -418,6 +427,11 @@ div.cform-response-output {
 /*=========================
   Footer
  ================= */
+
+.copyright {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
 
 section#footer {
     background: #242424;
