@@ -465,8 +465,8 @@ ul.social-network li {
 
 /* footer social icons */
 
-.social-network a.icoInstagram:hover {
-    background-color: #417399;
+.social-network a.icoGoogle:hover {
+    background-color: #d34836;
 }
 
 .social-network a.icoFacebook:hover {
